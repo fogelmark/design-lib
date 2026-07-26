@@ -1,9 +1,9 @@
 import { ComponentEntry } from "./component-registry";
-import MagneticButton from "@/components/showcase/magnetic-button";
+import MagneticButton from "@/components/showcase/buttons/magnetic-button";
 import FullscreenPreloader from "@/components/showcase/fullscreen-preloader";
 import ParallaxSection from "@/components/showcase/parallax-section";
 import TextRevealScroll from "@/components/showcase/text-reveal-scroll";
-import ButtonPillDemo from "@/components/showcase/button-pill-demo";
+import ButtonTextSlideDemo from "@/components/showcase/buttons/button-text-slide/button-text-slide-demo";
 
 export const components: ComponentEntry[] = [
   {
@@ -231,19 +231,19 @@ export default function TextRevealScroll() {
     },
   },
   {
-    id: "button-pill",
-    title: "Button Pill",
+    id: "button-text-slide",
+    title: "Button Text Slide",
     description:
-      "An animated pill button with hover effects and text transitions",
+      "An animated pill button with sliding text and background reveal on hover",
     category: "buttons",
-    tags: ["interactive", "hover", "animation"],
+    tags: ["interactive", "hover", "animation", "text-slide"],
     dependencies: ["motion"],
     usageNotes:
       "This is a reusable component split into two files: the component itself and a demo wrapper. Customize colors and timing for different styles. Works best with short text labels.",
-    component: ButtonPillDemo,
+    component: ButtonTextSlideDemo,
     code: {
       tsx: `// ========================================
-// FILE 1: button-pill.tsx - Reusable Component
+// FILE 1: button-text-slide.tsx - Reusable Component
 // ========================================
 // This is the main reusable component that you can use throughout your app.
 // Copy this file to your components directory.
@@ -259,7 +259,7 @@ interface ButtonProps {
   className?: string    // Optional: Add custom Tailwind classes to override styles
 }
 
-export const ButtonPill = ({ children, className }: ButtonProps) => {
+export const ButtonTextSlide = ({ children, className }: ButtonProps) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -318,26 +318,57 @@ export const ButtonPill = ({ children, className }: ButtonProps) => {
 }
 
 // ========================================
-// FILE 2: button-pill-demo.tsx - Usage Example
+// FILE 2: button-text-slide-demo.tsx - Usage Example
 // ========================================
-// This demonstrates how to use the ButtonPill component.
+// This demonstrates how to use the ButtonTextSlide component.
 // You can copy this pattern into your own pages/components.
 
 'use client';
 
 import React from 'react'
-import { ButtonPill } from './button-pill'
+import { ButtonTextSlide } from './button-text-slide'
 
-export default function ButtonPillDemo() {
+export default function ButtonTextSlideDemo() {
   return (
     <div className='min-h-screen flex items-center justify-center bg-white'>
       {/* BASIC USAGE: Simply pass the text you want as children */}
-      <ButtonPill>
+      <ButtonTextSlide>
         hover me
-      </ButtonPill>
+      </ButtonTextSlide>
+
+      {/* ADVANCED USAGE EXAMPLES: */}
+      {/*
+      // Different text:
+      <ButtonTextSlide>click here</ButtonTextSlide>
+      <ButtonTextSlide>get started</ButtonTextSlide>
+      <ButtonTextSlide>learn more</ButtonTextSlide>
+
+      // With custom styling (override background, text color, padding, etc.):
+      <ButtonTextSlide className="bg-black text-white px-16 py-6">
+        custom style
+      </ButtonTextSlide>
+
+      // Multiple buttons in a row:
+      <div className="flex gap-4">
+        <ButtonTextSlide>option 1</ButtonTextSlide>
+        <ButtonTextSlide>option 2</ButtonTextSlide>
+        <ButtonTextSlide>option 3</ButtonTextSlide>
+      </div>
+      */}
     </div>
   )
-}`,
+}
+
+// ========================================
+// USAGE INSTRUCTIONS:
+// ========================================
+// 1. Copy both files to your project
+// 2. Make sure you have 'motion/react' installed: npm install motion
+// 3. Import the ButtonTextSlide component: import { ButtonTextSlide } from './button-text-slide'
+// 4. Use it anywhere with your custom text:
+//    <ButtonTextSlide>your text here</ButtonTextSlide>
+// 5. The text will automatically be uppercased and animated on hover
+// 6. Customize colors by passing className prop with your own Tailwind classes`,
     },
   },
 ];

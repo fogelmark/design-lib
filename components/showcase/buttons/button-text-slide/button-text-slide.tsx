@@ -7,7 +7,7 @@ interface ButtonProps {
   className?: string
 }
 
-export const ButtonPill = ({ children, className }: ButtonProps) => {
+export const ButtonTextSlide = ({ children, className }: ButtonProps) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
