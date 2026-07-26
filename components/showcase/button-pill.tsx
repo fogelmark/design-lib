@@ -13,7 +13,7 @@ export const ButtonPill = ({ children, className }: ButtonProps) => {
   return (
     <span
       className={cn(
-        "group relative flex min-w-48 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-[#d9d7cb] px-12 py-4 text-xs font-semibold uppercase [clip-path:inset(0px)]",
+        "group relative flex w-48 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-[#d9d7cb] px-12 py-4 text-xs font-semibold uppercase [clip-path:inset(0px)]",
         className,
       )}
       onMouseEnter={() => setIsHovered(true)}

@@ -1,18 +1,20 @@
-import { ComponentEntry } from './component-registry';
-import MagneticButton from '@/components/showcase/magnetic-button';
-import FullscreenPreloader from '@/components/showcase/fullscreen-preloader';
-import ParallaxSection from '@/components/showcase/parallax-section';
-import TextRevealScroll from '@/components/showcase/text-reveal-scroll';
+import { ComponentEntry } from "./component-registry";
+import MagneticButton from "@/components/showcase/magnetic-button";
+import FullscreenPreloader from "@/components/showcase/fullscreen-preloader";
+import ParallaxSection from "@/components/showcase/parallax-section";
+import TextRevealScroll from "@/components/showcase/text-reveal-scroll";
+import ButtonPillDemo from "@/components/showcase/button-pill-demo";
 
 export const components: ComponentEntry[] = [
   {
-    id: 'magnetic-button',
-    title: 'Magnetic Button',
-    description: 'A button that follows the cursor with smooth spring physics',
-    category: 'buttons',
-    tags: ['interactive', 'hover', 'spring'],
-    dependencies: ['motion'],
-    usageNotes: 'Works best on desktop. Adjust spring config for different feels.',
+    id: "magnetic-button",
+    title: "Magnetic Button",
+    description: "A button that follows the cursor with smooth spring physics",
+    category: "buttons",
+    tags: ["interactive", "hover", "spring"],
+    dependencies: ["motion"],
+    usageNotes:
+      "Works best on desktop. Adjust spring config for different feels.",
     component: MagneticButton,
     code: {
       tsx: `'use client';
@@ -62,13 +64,15 @@ export default function MagneticButton() {
     },
   },
   {
-    id: 'fullscreen-preloader',
-    title: 'Fullscreen Preloader',
-    description: 'A fullscreen loading animation with progress counter and smooth exit',
-    category: 'preloaders',
-    tags: ['loading', 'animation', 'transition'],
-    dependencies: ['motion'],
-    usageNotes: 'Use AnimatePresence to control mount/unmount. Customize exit animation timing.',
+    id: "fullscreen-preloader",
+    title: "Fullscreen Preloader",
+    description:
+      "A fullscreen loading animation with progress counter and smooth exit",
+    category: "preloaders",
+    tags: ["loading", "animation", "transition"],
+    dependencies: ["motion"],
+    usageNotes:
+      "Use AnimatePresence to control mount/unmount. Customize exit animation timing.",
     component: FullscreenPreloader,
     code: {
       tsx: `'use client';
@@ -127,13 +131,14 @@ export default function FullscreenPreloader() {
     },
   },
   {
-    id: 'parallax-section',
-    title: 'Parallax Section',
-    description: 'Layered elements that move at different speeds on scroll',
-    category: 'parallax',
-    tags: ['scroll', 'depth', 'layers'],
-    dependencies: ['motion'],
-    usageNotes: 'Requires a scrollable parent. Adjust offset values for different scroll ranges.',
+    id: "parallax-section",
+    title: "Parallax Section",
+    description: "Layered elements that move at different speeds on scroll",
+    category: "parallax",
+    tags: ["scroll", "depth", "layers"],
+    dependencies: ["motion"],
+    usageNotes:
+      "Requires a scrollable parent. Adjust offset values for different scroll ranges.",
     component: ParallaxSection,
     code: {
       tsx: `'use client';
@@ -177,13 +182,14 @@ export default function ParallaxSection() {
     },
   },
   {
-    id: 'text-reveal-scroll',
-    title: 'Text Reveal on Scroll',
-    description: 'Text that reveals word by word as you scroll',
-    category: 'text-animations',
-    tags: ['scroll', 'reveal', 'typography'],
-    dependencies: ['motion'],
-    usageNotes: 'Adjust offset values to control when the reveal starts and ends.',
+    id: "text-reveal-scroll",
+    title: "Text Reveal on Scroll",
+    description: "Text that reveals word by word as you scroll",
+    category: "text-animations",
+    tags: ["scroll", "reveal", "typography"],
+    dependencies: ["motion"],
+    usageNotes:
+      "Adjust offset values to control when the reveal starts and ends.",
     component: TextRevealScroll,
     code: {
       tsx: `'use client';
@@ -221,6 +227,116 @@ export default function TextRevealScroll() {
       </p>
     </div>
   );
+}`,
+    },
+  },
+  {
+    id: "button-pill",
+    title: "Button Pill",
+    description:
+      "An animated pill button with hover effects and text transitions",
+    category: "buttons",
+    tags: ["interactive", "hover", "animation"],
+    dependencies: ["motion"],
+    usageNotes:
+      "This is a reusable component split into two files: the component itself and a demo wrapper. Customize colors and timing for different styles. Works best with short text labels.",
+    component: ButtonPillDemo,
+    code: {
+      tsx: `// ========================================
+// FILE 1: button-pill.tsx - Reusable Component
+// ========================================
+// This is the main reusable component that you can use throughout your app.
+// Copy this file to your components directory.
+
+'use client';
+
+import { cn } from "@/lib/utils"
+import { motion } from "motion/react"
+import { useState } from "react"
+
+interface ButtonProps {
+  children: string      // The text to display on the button
+  className?: string    // Optional: Add custom Tailwind classes to override styles
+}
+
+export const ButtonPill = ({ children, className }: ButtonProps) => {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <span
+      className={cn(
+        "group relative flex min-w-48 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-[#d9d7cb] px-12 py-4 text-xs font-semibold uppercase [clip-path:inset(0px)]",
+        className,
+      )}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <span className="relative z-20 leading-none [clip-path:inset(0px)]">
+        <motion.span
+          className="relative inline-block text-[#211e1f]"
+          initial={{ y: 0, opacity: 1 }}
+          animate={{
+            y: isHovered ? "-100%" : 0,
+            opacity: isHovered ? 0.25 : 1,
+          }}
+          transition={{
+            duration: 0.3,
+            ease: [0.25, 1, 0.5, 1],
+            delay: isHovered ? 0 : 0.2,
+          }}
+        >
+          {children}
+        </motion.span>
+        <motion.span
+          className="absolute top-0 left-0 text-[#211e1f]"
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: isHovered ? 0 : "100%", opacity: isHovered ? 1 : 0 }}
+          transition={{
+            duration: 0.3,
+            delay: isHovered ? 0.2 : 0,
+            ease: [0.25, 1, 0.5, 1],
+          }}
+        >
+          {children}
+        </motion.span>
+      </span>
+      <motion.span
+        initial={{ y: "135%" }}
+        animate={{
+          y: isHovered ? 0 : "135%",
+        }}
+        transition={{
+          duration: 0.8,
+          delay: isHovered ? 0 : 0.1,
+          ease: [0.25, 1, 0.5, 1],
+        }}
+        className="pointer-events-none absolute top-0 z-0 h-full w-full rounded-2xl bg-[#eae9e3]"
+      />
+      <span className="absolute top-0 left-0 h-full w-full" />
+    </span>
+  )
+}
+
+// ========================================
+// FILE 2: button-pill-demo.tsx - Usage Example
+// ========================================
+// This demonstrates how to use the ButtonPill component.
+// You can copy this pattern into your own pages/components.
+
+'use client';
+
+import React from 'react'
+import { ButtonPill } from './button-pill'
+
+export default function ButtonPillDemo() {
+  return (
+    <div className='min-h-screen flex items-center justify-center bg-white'>
+      {/* BASIC USAGE: Simply pass the text you want as children */}
+      <ButtonPill>
+        hover me
+      </ButtonPill>
+    </div>
+  )
 }`,
     },
   },
