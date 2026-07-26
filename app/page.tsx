@@ -30,7 +30,7 @@ export default function Home() {
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Production-ready
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-accent">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-light to-accent">
               components & effects
             </span>
           </h2>

@@ -46,7 +46,7 @@ export default function MagneticButton() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[300px]">
+    <div className="flex items-center justify-center min-h-75">
       <motion.button
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -153,7 +153,7 @@ export default function ParallaxSection() {
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <div ref={containerRef} className="relative min-h-[500px] bg-zinc-950 overflow-hidden">
+    <div ref={containerRef} className="relative min-h-125 bg-zinc-950 overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           style={{ y: y1 }}
@@ -201,7 +201,7 @@ export default function TextRevealScroll() {
   const words = 'Scroll to reveal this text word by word'.split(' ');
 
   return (
-    <div ref={containerRef} className="min-h-[400px] flex items-center justify-center bg-zinc-900">
+    <div ref={containerRef} className="min-h-100 flex items-center justify-center bg-zinc-900">
       <p className="text-4xl md:text-6xl font-bold text-center px-8 max-w-4xl">
         {words.map((word, index) => {
           const start = index / words.length;
