@@ -1,14 +1,16 @@
-import { ComponentEntry } from '@/lib/component-registry';
-import ButtonTextSlideDemo from './button-text-slide-demo';
+import { ComponentEntry } from "@/lib/component-registry";
+import ButtonTextSlideDemo from "./button-text-slide-demo";
 
 export const buttonTextSlide: ComponentEntry = {
-  id: 'button-text-slide',
-  title: 'Button Text Slide',
-  description: 'An animated pill button with sliding text and background reveal on hover',
-  category: 'buttons',
-  tags: ['interactive', 'hover', 'animation', 'text-slide'],
-  dependencies: ['motion'],
-  usageNotes: 'This is a reusable component split into two files: the component itself and a demo wrapper. Customize colors and timing for different styles. Works best with short text labels.',
+  id: "button-text-slide",
+  title: "Button Text Slide",
+  description:
+    "An animated pill button with sliding text and background reveal on hover",
+  category: "buttons",
+  tags: ["interactive", "hover", "animation", "text-slide"],
+  dependencies: ["motion"],
+  usageNotes:
+    "This is a reusable component split into two files: the component itself and a demo wrapper. Customize colors and timing for different styles. Works best with short text labels.",
   component: ButtonTextSlideDemo,
   code: {
     tsx: `// ========================================

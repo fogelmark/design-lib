@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { ButtonTextSlide } from "./button-text-slide";
+import { ButtonTextSlide } from "./button-text-slide"
 
 export default function ButtonTextSlideDemo() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-950">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-950">
       <ButtonTextSlide>hover me</ButtonTextSlide>
     </div>
-  );
+  )
 }
