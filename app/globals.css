@@ -9,6 +9,8 @@
 }
 
 @theme inline {
+  --color-red-primary: oklch(0.5537 0.1953 26.41);
+  --color-gray-background: oklch(0.1722 0.0041 106.82);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);

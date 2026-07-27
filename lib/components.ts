@@ -4,6 +4,7 @@ import { buttonTextSlide } from "@/components/showcase/buttons/button-text-slide
 import { fullscreenPreloader } from "@/components/showcase/preloaders/fullscreen-preloader";
 import { parallaxSection } from "@/components/showcase/parallax/parallax-section";
 import { textRevealScroll } from "@/components/showcase/text-animations/text-reveal-scroll";
+import { textSequence } from "@/components/showcase/text-sequence";
 
 export const components: ComponentEntry[] = [
   magneticButton,
@@ -11,4 +12,5 @@ export const components: ComponentEntry[] = [
   parallaxSection,
   textRevealScroll,
   buttonTextSlide,
+  textSequence,
 ];

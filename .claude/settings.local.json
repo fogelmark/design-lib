@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npx prettier --write components/showcase/buttons/button-text-slide/index.ts)",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(npx prettier --write components/showcase/text-sequence/index.ts)",
+      "Bash(npx prettier --write components/showcase/text-sequence/text-sequence.tsx components/showcase/text-sequence/index.ts)"
     ],
     "deny": [],
     "ask": []
