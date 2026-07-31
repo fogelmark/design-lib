@@ -29,7 +29,7 @@ export default function MagneticButton() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-75">
+    <div className="flex items-center justify-center min-h-100">
       <motion.button
         ref={ref}
         onMouseMove={handleMouseMove}

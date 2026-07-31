@@ -21,13 +21,12 @@ export default function ComponentCard({ component, index }: ComponentCardProps) 
       }}
     >
       <Link href={`/component/${component.id}`}>
-        <div className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
+        <div className="group relative rounded-2xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
           {/* Preview container */}
-          <div className="aspect-video bg-zinc-950 relative overflow-hidden flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-75">
+          <div className="aspect-video relative overflow-hidden flex items-center justify-center bg-zinc-900">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <component.component />
             </div>
-            <div className="absolute inset-0 bg-linear-to-t from-zinc-900 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
 
           {/* Card content */}
