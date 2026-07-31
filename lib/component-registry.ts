@@ -19,6 +19,7 @@ export interface ComponentMetadata {
 
 export interface ComponentEntry extends ComponentMetadata {
   component: React.ComponentType<any>;
+  previewComponent?: React.ComponentType<any>;
   code: {
     tsx: string;
     css?: string;

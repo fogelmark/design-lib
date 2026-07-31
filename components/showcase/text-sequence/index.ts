@@ -1,5 +1,6 @@
 import { ComponentEntry } from "@/lib/component-registry"
 import TextSequence from "./text-sequence"
+import TextSequenceDemo from "./text-sequence-demo"
 
 export const textSequence: ComponentEntry = {
   id: "text-sequence",
@@ -12,6 +13,7 @@ export const textSequence: ComponentEntry = {
   usageNotes:
     "Animates when fully in view using useInView hook. Customize the text by changing the letters array. Adjust baseDuration and delay for different timing effects. Includes replay button. Uses custom font (League Gothic).",
   component: TextSequence,
+  previewComponent: TextSequenceDemo,
   code: {
     tsx: `'use client'
 

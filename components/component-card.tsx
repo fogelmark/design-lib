@@ -10,6 +10,8 @@ interface ComponentCardProps {
 }
 
 export default function ComponentCard({ component, index }: ComponentCardProps) {
+  const PreviewComponent = component.previewComponent || component.component;
+
   return (
     <motion.div
       initial={{ y: 40, opacity: 0 }}
@@ -25,7 +27,7 @@ export default function ComponentCard({ component, index }: ComponentCardProps) 
           {/* Preview container */}
           <div className="aspect-video relative overflow-hidden flex items-center justify-center bg-zinc-900">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <component.component />
+              <PreviewComponent />
             </div>
           </div>
 
